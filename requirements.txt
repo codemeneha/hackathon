@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+httpx
+pydantic
+qiskit
+qiskit-aer
