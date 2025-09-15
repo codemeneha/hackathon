@@ -67,7 +67,7 @@
 
     // ---- Reverse geocode helper ----
     async function reverseGeocode(lat, lng) {
-      const res = await fetch(`http://127.0.0.1:8000/reverse_geocode?lat=${lat}&lng=${lng}`);
+      const res = await fetch(`https://hackathon-iam5.onrender.com/reverse_geocode?lat=${lat}&lng=${lng}`);
       const data = await res.json();
       return data.name || "Unknown place";
     }
@@ -94,7 +94,7 @@
 
     async function computeRoutes(end) {
       clearETAs(); removeRoutes();
-      const res = await fetch("http://127.0.0.1:8000/routes", {
+      const res = await fetch("https://hackathon-iam5.onrender.com/routes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ start, end, vehicle, cc })
@@ -143,7 +143,7 @@
 
     // Convert destination name to lat/lng and compute routes
     async function geocodeAndCompute() {
-      const geoRes = await fetch(`http://127.0.0.1:8000/geocode?query=${encodeURIComponent(dest)}`);
+      const geoRes = await fetch(`https://hackathon-iam5.onrender.com/geocode?query=${encodeURIComponent(dest)}`);
       const geoData = await geoRes.json();
       if (!geoData.lat) return alert("Destination not found");
       const end = L.latLng(geoData.lat, geoData.lng);
@@ -157,3 +157,4 @@
   </script>
 </body>
 </html>
+
